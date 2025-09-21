@@ -1,0 +1,112 @@
+import { useState } from "react";
+import { Link, useLocation } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Gamepad2, Menu, X } from "lucide-react";
+
+export function Navbar() {
+  const [location] = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Games", path: "/games" },
+    { name: "Categories", path: "/categories" },
+    { name: "Leaderboard", path: "/leaderboard" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  const isActivePath = (path: string) => {
+    if (path === "/") return location === "/";
+    return location.startsWith(path);
+  };
+
+  return (
+    <nav className="bg-card border-b border-border sticky top-0 z-50 shadow-sm" data-testid="navbar">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2" data-testid="logo-link">
+            <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center">
+              <Gamepad2 className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-bold text-foreground">DapsiGames</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`transition-colors ${
+                  isActivePath(item.path)
+                    ? "text-primary font-medium"
+                    : "text-foreground hover:text-primary"
+                }`}
+                data-testid={`nav-link-${item.name.toLowerCase()}`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Auth Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/login">
+              <Button variant="ghost" data-testid="button-login">
+                Login
+              </Button>
+            </Link>
+            <Link href="/signup">
+              <Button data-testid="button-signup">
+                Sign Up
+              </Button>
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden" data-testid="button-mobile-menu">
+                <Menu className="w-6 h-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col space-y-4 mt-8">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg transition-colors ${
+                      isActivePath(item.path)
+                        ? "text-primary font-medium"
+                        : "text-foreground hover:text-primary"
+                    }`}
+                    data-testid={`mobile-nav-link-${item.name.toLowerCase()}`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <div className="flex flex-col space-y-2 pt-4 border-t border-border">
+                  <Link href="/login" onClick={() => setIsOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start" data-testid="mobile-button-login">
+                      Login
+                    </Button>
+                  </Link>
+                  <Link href="/signup" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full" data-testid="mobile-button-signup">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </nav>
+  );
+}
