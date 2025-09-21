@@ -1,0 +1,96 @@
+Build a modern, responsive, and professional React + Tailwind CSS website for "DapsiGames" – a study + gaming hub for students. The design should combine academic and playful elements (study + gaming style) while keeping it clean, lightweight, and user-friendly.  
+
+### General Design Guidelines:
+- Color palette: Blue (#2563EB) + Green (#10B981) as primary, Yellow (#FACC15) as accent.  
+- Typography: Rounded, student-friendly fonts (e.g., Inter, Poppins).  
+- Style: Minimal, flat illustrations, soft shadows, rounded corners (2xl).  
+- Icons: Use lucide-react for icons (books, controllers, puzzles, light bulbs).  
+- Animations: Smooth hover effects, framer-motion for section transitions.  
+- Responsive: Mobile-first, works across all devices.  
+- Accessibility: High contrast, readable text, clear navigation.  
+
+---
+
+### Pages & Components:
+
+#### 1. **Homepage**
+- Hero section with catchy headline: "Learn Through Play – 150+ Free Study Games".  
+- Subtext: "Boost learning, memory, and problem-solving with fun, interactive games."  
+- CTA button: "Start Playing Free".  
+- Stats row (e.g., 500K+ learners, 5M+ game plays).  
+- Popular games showcase (game cards with icons).  
+- Categories grid (Math, Vocabulary, Memory, Logic, Language).  
+- "Why Choose DapsiGames?" 4 feature blocks (🎓 Learn Faster, 🧠 Train Memory, ⚡ Stay Motivated, 🌍 Free & Accessible).  
+- Spotlight section for 3–4 featured games.  
+- How It Works (3 steps).  
+- Trusted by learners worldwide (counters).  
+- Testimonials (optional).  
+- FAQ section (collapsible Q&A).  
+- Footer with quick links.  
+
+#### 2. **Games Page (/games)**
+- Search bar + filter by category.  
+- Category tabs (Math, Vocabulary, Memory, Logic, Language).  
+- Responsive grid of game cards (icon, name, short description, "Play Now").  
+- Pagination or infinite scroll for large game lists.  
+
+#### 3. **Game Details Page (/game/:id)**
+- Game title, icon/illustration.  
+- Short description + learning benefits.  
+- "Play Now" button (starts the game).  
+- Instructions section.  
+- Related games suggestions.  
+
+#### 4. **Categories Page (/categories)**
+- Grid layout of all categories.  
+- Each card: category icon + tagline + "Explore Games".  
+
+#### 5. **Leaderboard Page (/leaderboard)**
+- Global and category-specific leaderboards.  
+- Player cards with rank, avatar, username, score.  
+- Tabs: Daily / Weekly / All-time.  
+
+#### 6. **About Page (/about)**
+- Story of DapsiGames: "Making learning fun for students worldwide".  
+- Mission, vision, and values.  
+- Timeline or milestones (interactive).  
+
+#### 7. **Contact Page (/contact)**
+- Contact form (Name, Email, Message).  
+- Support email + social links.  
+- Map or illustration of global reach.  
+
+#### 8. **Auth Pages (/login, /signup, /profile)**
+- Clean login/signup forms with student-friendly design.  
+- Profile page: Saved games, progress tracking, achievements.  
+- Avatars + badges (gamification).  
+
+#### 9. **Dashboard (Optional for logged-in users)**
+- Personalized dashboard showing:  
+  - Recently played games.  
+  - Achievements unlocked.  
+  - Progress in different categories.  
+  - Recommended new games.  
+
+---
+
+### Components:
+- **Navbar**: Logo icon, nav links, profile dropdown (when logged in).  
+- **Footer**: Links to About, Privacy Policy, Terms, Contact.  
+- **Game Card Component**: Consistent design for all games.  
+- **Category Card Component**: Icon + tagline + button.  
+- **FAQ Component**: Accordion style.  
+- **Stats Counter Component**: Animated counters.  
+- **Testimonial Component**: Card/slider style.  
+- **Leaderboard Table**: Stylish table with avatars & ranks.  
+
+---
+
+### SEO & Performance:
+- Meta title: "DapsiGames – Free Study Games for Students".  
+- Meta description: "Play 150+ free study games at DapsiGames. Boost memory, learning, and problem-solving through fun, interactive games for students worldwide."  
+- Schema markup for "Educational Games Website".  
+- Fast-loading, optimized images/icons.  
+- WCAG accessible.  
+
+Deliver a fully functional, professional site structure with placeholder images, dummy game data, and reusable components.
