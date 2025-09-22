@@ -4,12 +4,21 @@ import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & {
+    elevation?: "1" | "2" | "3";
+    interactive?: boolean;
+  }
+>(({ className, elevation = "1", interactive = false, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-2xl border bg-card text-card-foreground transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]",
+      {
+        "shadow-md": elevation === "1",
+        "shadow-lg bg-card-2": elevation === "2", 
+        "shadow-xl bg-card-3": elevation === "3",
+        "hover:shadow-game hover:-translate-y-1 cursor-pointer": interactive,
+      },
       className
     )}
     {...props}
@@ -36,7 +45,7 @@ const CardTitle = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-2xl font-display font-bold leading-none tracking-tight",
       className
     )}
     {...props}
