@@ -46,88 +46,109 @@ export default function Home() {
 
   return (
     <div data-testid="home-page">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden" data-testid="hero-section">
-        {/* Animated Background */}
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden" data-testid="hero-section">
+        {/* Enhanced Animated Background */}
         <div className="absolute inset-0 bg-gaming-primary">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/60 to-accent/40" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%)] animate-pulse" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1),transparent_50%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-secondary/70 to-accent/50" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.4),transparent_60%)] animate-pulse" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.15),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(72,187,120,0.1),transparent_40%)] animate-pulse" style={{animationDelay: '1s'}} />
         </div>
         
-        {/* Floating Elements */}
+        {/* Enhanced Floating Elements with Gaming Icons */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-20 w-4 h-4 bg-accent rounded-full animate-float" />
-          <div className="absolute top-40 right-32 w-6 h-6 bg-secondary rounded-full animate-float-delayed" />
-          <div className="absolute bottom-32 left-1/3 w-3 h-3 bg-accent rounded-full animate-float" />
-          <div className="absolute bottom-20 right-20 w-5 h-5 bg-secondary rounded-full animate-float-delayed" />
+          <div className="absolute top-20 left-20 w-6 h-6 bg-accent/80 rounded-full animate-float shadow-lg" />
+          <div className="absolute top-40 right-32 w-8 h-8 bg-secondary/70 rounded-full animate-float-delayed shadow-xl">
+            <div className="w-4 h-4 bg-white/30 rounded-full m-2 animate-pulse" />
+          </div>
+          <div className="absolute bottom-32 left-1/3 w-5 h-5 bg-accent/90 rounded-full animate-float shadow-md" />
+          <div className="absolute bottom-20 right-20 w-7 h-7 bg-secondary/80 rounded-full animate-float-delayed shadow-lg" />
+          <div className="absolute top-1/2 left-10 w-4 h-4 bg-white/20 rounded-full animate-float" style={{animationDelay: '2s'}} />
+          <div className="absolute top-1/3 right-10 w-3 h-3 bg-accent/60 rounded-full animate-float-delayed" style={{animationDelay: '3s'}} />
         </div>
         
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <div className="mb-8">
-            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-6">
-              <Trophy className="w-5 h-5 text-accent" />
-              <span className="text-white font-display font-medium">🎉 Over 500K+ Students Learning Daily</span>
+          <div className="mb-10">
+            <div className="inline-flex items-center space-x-3 bg-white/25 backdrop-blur-md rounded-full px-8 py-4 mb-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <Trophy className="w-6 h-6 text-accent animate-pulse group-hover:animate-bounce" />
+              <span className="text-white font-display font-semibold text-lg">🎉 Join 500K+ Students Learning Daily!</span>
+              <Sparkles className="w-5 h-5 text-accent animate-pulse" />
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 leading-tight" data-testid="hero-title">
-            Learn Through
-            <span className="block text-gaming-gradient animate-text-shimmer bg-[length:200%_auto]">
-              Epic Gaming
+          <h1 className="text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-display font-black text-white mb-10 leading-tight tracking-tight" data-testid="hero-title">
+            <span className="block motion-safe:animate-fadeInUp">Turn Learning Into</span>
+            <span className="block text-gaming-gradient animate-text-shimmer bg-[length:200%_auto] mt-2" style={{animationDelay: '0.5s'}}>
+              Epic Adventures!
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-medium" data-testid="hero-subtitle">
-            Transform your study sessions into thrilling adventures with 
-            <span className="text-accent font-bold">150+ free educational games</span> 
-            designed to boost learning, memory, and problem-solving skills.
+          <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white/95 mb-16 max-w-5xl mx-auto leading-relaxed font-semibold motion-safe:animate-fadeInUp" data-testid="hero-subtitle" style={{animationDelay: '1s'}}>
+            Say goodbye to boring textbooks! 🚀 Master any subject with 
+            <span className="text-accent font-black bg-accent/20 px-3 py-1 rounded-lg border-2 border-accent/30 shadow-lg">150+ interactive games</span> 
+            that make learning as exciting as your favorite video game!
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Link href="/games">
-              <Button 
-                variant="gaming"
-                size="xl"
-                className="bg-white text-gaming-primary hover:bg-white/90 px-12 py-6 rounded-3xl font-display font-bold text-xl shadow-2xl hover:shadow-glow transform hover:scale-110 active:scale-95 group"
-                data-testid="button-start-playing"
-              >
-                <Play className="w-6 h-6 mr-3 group-hover:animate-pulse" />
-                Start Playing Free
-                <Sparkles className="w-5 h-5 ml-3 animate-pulse" />
-              </Button>
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20 motion-safe:animate-fadeInUp" style={{animationDelay: '1.5s'}}>
+            <Button 
+              asChild
+              variant="gaming"
+              size="xl"
+              className="bg-white text-gaming-primary hover:bg-white/95 px-16 py-8 rounded-3xl font-display font-black text-2xl shadow-2xl hover:shadow-glow transform hover:scale-110 active:scale-95 group border-4 border-white/20 transition-all duration-300"
+              data-testid="button-start-playing"
+            >
+              <Link href="/games">
+                <Play className="w-8 h-8 mr-4 group-hover:motion-safe:animate-bounce" />
+                Start Playing FREE!
+                <Sparkles className="w-6 h-6 ml-4 motion-safe:animate-pulse" />
+              </Link>
+            </Button>
             
-            <Link href="/categories">
-              <Button 
-                variant="outline"
-                size="xl"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-10 py-6 rounded-3xl font-display font-bold text-xl backdrop-blur-sm"
-                data-testid="button-browse-categories"
-              >
-                Browse Categories
-              </Button>
-            </Link>
+            <Button 
+              asChild
+              variant="outline"
+              size="xl"
+              className="border-4 border-white/40 text-white hover:bg-white/15 hover:border-white/60 px-14 py-8 rounded-3xl font-display font-bold text-2xl backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              data-testid="button-browse-categories"
+            >
+              <Link href="/categories">
+                <Eye className="w-6 h-6 mr-3 group-hover:motion-safe:animate-pulse" />
+                Explore Games
+              </Link>
+            </Button>
           </div>
           
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-display font-bold text-white mb-2">500K+</div>
-              <div className="text-white/70 font-medium">Active Learners</div>
+          {/* Enhanced Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto motion-safe:animate-fadeInUp" style={{animationDelay: '2s'}}>
+            <div className="text-center group">
+              <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20">
+                <Users className="w-10 h-10 text-accent mx-auto mb-3 group-hover:animate-bounce" />
+                <div className="text-4xl md:text-5xl font-display font-black text-white mb-2 group-hover:text-accent transition-colors">500K+</div>
+                <div className="text-white/80 font-semibold text-lg">Happy Students</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-display font-bold text-accent mb-2">150+</div>
-              <div className="text-white/70 font-medium">Study Games</div>
+            <div className="text-center group">
+              <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20">
+                <Play className="w-10 h-10 text-secondary mx-auto mb-3 group-hover:animate-bounce" />
+                <div className="text-4xl md:text-5xl font-display font-black text-accent mb-2 group-hover:text-secondary transition-colors">150+</div>
+                <div className="text-white/80 font-semibold text-lg">Fun Games</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-display font-bold text-secondary mb-2">5M+</div>
-              <div className="text-white/70 font-medium">Game Plays</div>
+            <div className="text-center group">
+              <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20">
+                <Heart className="w-10 h-10 text-white mx-auto mb-3 group-hover:animate-bounce" />
+                <div className="text-4xl md:text-5xl font-display font-black text-secondary mb-2 group-hover:text-white transition-colors">5M+</div>
+                <div className="text-white/80 font-semibold text-lg">Game Sessions</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-display font-bold text-white mb-2">95%</div>
-              <div className="text-white/70 font-medium">Success Rate</div>
+            <div className="text-center group">
+              <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20">
+                <Target className="w-10 h-10 text-accent mx-auto mb-3 group-hover:animate-bounce" />
+                <div className="text-4xl md:text-5xl font-display font-black text-white mb-2 group-hover:text-accent transition-colors">95%</div>
+                <div className="text-white/80 font-semibold text-lg">Success Rate</div>
+              </div>
             </div>
           </div>
         </div>
