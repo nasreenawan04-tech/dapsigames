@@ -88,25 +88,25 @@ export function GameCard({ game }: GameCardProps) {
   return (
     <Card className="game-card group shadow-lg border-2 border-border/50 hover:border-primary/30 transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:shadow-game hover:-translate-y-2 hover:scale-[1.02] overflow-hidden relative" elevation="2" interactive data-testid={`game-card-${game.id}`}>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms]" />
-      <CardContent className="p-6 relative z-10">
-        <div className={`w-20 h-20 ${getIconBg(game.category)} rounded-3xl flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]`}>
-          {IconComponent && <IconComponent className={`w-10 h-10 ${getIconColor(game.category)} group-hover:animate-pulse`} />}
+      <CardContent className="p-4 sm:p-6 relative z-10">
+        <div className={`w-16 sm:w-20 h-16 sm:h-20 ${getIconBg(game.category)} rounded-2xl sm:rounded-3xl flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]`}>
+          {IconComponent && <IconComponent className={`w-8 sm:w-10 h-8 sm:h-10 ${getIconColor(game.category)} group-hover:animate-pulse`} />}
         </div>
-        <h3 className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors duration-[250ms]" data-testid={`game-title-${game.id}`}>
+        <h3 className="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-[250ms] line-clamp-2" data-testid={`game-title-${game.id}`}>
           {game.title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-6 line-clamp-2 leading-relaxed" data-testid={`game-description-${game.id}`}>
+        <p className="text-muted-foreground text-xs sm:text-sm mb-4 sm:mb-6 line-clamp-2 leading-relaxed" data-testid={`game-description-${game.id}`}>
           {game.description}
         </p>
         <div className="flex justify-between items-center">
-          <Badge variant="gaming" className={`text-xs font-bold ${getColorClasses(game.category)} group-hover:scale-110 transition-transform duration-[250ms]`} data-testid={`game-category-${game.id}`}>
+          <Badge variant="gaming" className={`text-xs font-bold ${getColorClasses(game.category)} group-hover:scale-110 transition-transform duration-[250ms] truncate`} data-testid={`game-category-${game.id}`}>
             {game.category.charAt(0).toUpperCase() + game.category.slice(1)}
           </Badge>
           <Link href={`/game/${game.id}`}>
             <Button 
               variant="gaming"
               size="sm" 
-              className={`text-sm font-display font-bold shadow-md hover:shadow-glow transform hover:scale-105 active:scale-95`}
+              className={`text-xs sm:text-sm font-display font-bold shadow-md hover:shadow-glow transform hover:scale-105 active:scale-95 px-3 sm:px-4`}
               data-testid={`button-play-${game.id}`}
             >
               Play Now

@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="bg-gaming-primary text-white relative overflow-hidden" data-testid="footer">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/20 to-accent/30" />
-      <div className="relative z-10 max-w-6xl mx-auto py-16 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="relative z-10 max-w-6xl mx-auto py-12 sm:py-16 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">

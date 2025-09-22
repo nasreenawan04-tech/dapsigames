@@ -26,7 +26,7 @@ export function Navbar() {
   return (
     <nav className="bg-card border-b border-border sticky top-0 z-50 shadow-lg" data-testid="navbar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group" data-testid="logo-link">
             <div className="w-12 h-12 bg-gaming-primary rounded-2xl flex items-center justify-center shadow-game group-hover:shadow-glow transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-110">
@@ -39,7 +39,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -57,7 +57,7 @@ export function Navbar() {
           </div>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             <ThemeToggle />
             <Link href="/login">
               <Button variant="ghost" className="font-display" data-testid="button-login">
@@ -74,7 +74,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden" data-testid="button-mobile-menu">
+              <Button variant="ghost" size="icon" className="lg:hidden" data-testid="button-mobile-menu">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>

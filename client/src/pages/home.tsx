@@ -47,25 +47,25 @@ export default function Home() {
   return (
     <div data-testid="home-page">
       {/* Simple Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary py-24 px-4" data-testid="hero-section">
+      <section className="bg-gradient-to-r from-primary to-secondary py-16 sm:py-20 lg:py-24 px-4" data-testid="hero-section">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6" data-testid="hero-title">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight" data-testid="hero-title">
             Learn Through Play
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto" data-testid="hero-subtitle">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="hero-subtitle">
             Transform your education with interactive games that make learning fun and effective
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
             <Button 
               asChild
               size="lg"
-              className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold"
+              className="bg-white text-primary hover:bg-white/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               data-testid="button-start-playing"
             >
               <Link href="/games">
-                <Play className="w-5 h-5 mr-2" />
+                <Play className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                 Start Playing
               </Link>
             </Button>
@@ -74,7 +74,7 @@ export default function Home() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold"
+              className="border-white text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               data-testid="button-browse-categories"
             >
               <Link href="/categories">
@@ -86,14 +86,14 @@ export default function Home() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-20 bg-gradient-to-r from-muted/50 to-card/50 border-y border-border/20" data-testid="trust-section">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-muted/50 to-card/50 border-y border-border/20" data-testid="trust-section">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">Trusted by Students Worldwide</h2>
-            <p className="text-muted-foreground text-lg">Join millions of learners who have transformed their education through gaming</p>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-3 sm:mb-4">Trusted by Students Worldwide</h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto">Join millions of learners who have transformed their education through gaming</p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center group">
               <div className="w-20 h-20 bg-gaming-primary rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-[250ms]">
                 <Users className="w-10 h-10 text-white" />
@@ -126,21 +126,21 @@ export default function Home() {
       </section>
 
       {/* Popular Games Showcase */}
-      <section className="py-24 px-4 bg-gradient-to-b from-background to-muted/30" data-testid="popular-games-section">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-b from-background to-muted/30" data-testid="popular-games-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-gaming-primary/10 backdrop-blur-sm rounded-full px-6 py-3 mb-6">
-              <Trophy className="w-5 h-5 text-gaming-primary" />
-              <span className="text-gaming-primary font-display font-medium">Most Loved by Students</span>
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center space-x-2 bg-gaming-primary/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6">
+              <Trophy className="w-4 sm:w-5 h-4 sm:h-5 text-gaming-primary" />
+              <span className="text-gaming-primary font-display font-medium text-sm sm:text-base">Most Loved by Students</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-center mb-6 text-gaming-gradient" data-testid="popular-games-title">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-center mb-4 sm:mb-6 text-gaming-gradient" data-testid="popular-games-title">
               Popular Games
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
               Discover the games that are transforming how students learn around the world
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {popularGames.map((game) => (
               <GameCard key={game.id} game={game} />
             ))}
@@ -163,18 +163,18 @@ export default function Home() {
       </section>
 
       {/* Categories Grid */}
-      <section className="py-24 bg-gradient-to-br from-muted/50 via-card/30 to-accent/5 px-4" data-testid="categories-section">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-muted/50 via-card/30 to-accent/5 px-4" data-testid="categories-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-center mb-6 text-gaming-gradient" data-testid="categories-title">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-center mb-4 sm:mb-6 text-gaming-gradient" data-testid="categories-title">
               Game Categories
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
               Choose your learning adventure from our diverse collection of educational game categories
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {categories.slice(0, 5).map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
@@ -191,17 +191,17 @@ export default function Home() {
       </section>
 
       {/* Why Choose DapsiGames */}
-      <section className="py-24 px-4 bg-gradient-to-b from-background to-gaming-primary/5" data-testid="features-section">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-b from-background to-gaming-primary/5" data-testid="features-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-center mb-6 text-gaming-gradient" data-testid="features-title">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-center mb-4 sm:mb-6 text-gaming-gradient" data-testid="features-title">
               Why Choose DapsiGames?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
               Experience the future of education with our innovative approach to learning
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center group" data-testid="feature-learn-faster">
               <div className="w-20 h-20 bg-gaming-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:bg-gaming-primary/20 transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]">
                 <GraduationCap className="w-10 h-10 text-gaming-primary group-hover:animate-pulse" />
@@ -238,17 +238,17 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 bg-gradient-to-br from-gaming-primary/5 via-muted/50 to-accent/5 px-4" data-testid="how-it-works-section">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gaming-primary/5 via-muted/50 to-accent/5 px-4" data-testid="how-it-works-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-center mb-6 text-gaming-gradient" data-testid="how-it-works-title">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-center mb-4 sm:mb-6 text-gaming-gradient" data-testid="how-it-works-title">
               How It Works
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
               Start your learning adventure in just three simple steps
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
             <div className="text-center group" data-testid="step-1">
               <div className="w-24 h-24 bg-gaming-primary rounded-3xl flex items-center justify-center mx-auto mb-6 text-white font-display font-bold text-3xl shadow-xl group-hover:shadow-2xl group-hover:scale-110 group-hover:bg-gaming-primary/90 transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]">
                 1
@@ -277,13 +277,13 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-background to-muted/30" data-testid="faq-section">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-b from-background to-muted/30" data-testid="faq-section">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-center mb-6 text-gaming-gradient" data-testid="faq-title">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-center mb-4 sm:mb-6 text-gaming-gradient" data-testid="faq-title">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
               Get answers to common questions about DapsiGames and start your learning adventure
             </p>
           </div>
