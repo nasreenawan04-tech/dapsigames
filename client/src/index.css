@@ -4,31 +4,31 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(210, 40%, 98%);
-  --foreground: hsl(222, 84%, 5%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222, 84%, 5%);
+  --background: hsl(0deg 0% 100%);
+  --foreground: hsl(222.22deg 47.37% 11.18%);
+  --card: hsl(0deg 0% 100%);
+  --card-foreground: hsl(222.22deg 47.37% 11.18%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(222, 84%, 5%);
-  --primary: hsl(221, 83%, 53%);
-  --primary-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(221.21deg 83.19% 53.33%);
+  --primary-foreground: hsl(210deg 40% 98.04%);
   --primary-text: hsl(221, 83%, 53%);      /* Same as primary in light mode */
-  --secondary: hsl(158, 64%, 52%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215, 16%, 47%);
-  --accent: hsl(48, 96%, 53%);
-  --accent-foreground: hsl(222, 84%, 5%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --ring: hsl(221, 83%, 53%);
-  --chart-1: hsl(221, 83%, 53%);
-  --chart-2: hsl(158, 64%, 52%);
-  --chart-3: hsl(48, 96%, 53%);
-  --chart-4: hsl(147, 78%, 42%);
-  --chart-5: hsl(341, 75%, 51%);
+  --secondary: hsl(173.41deg 80.39% 40%);
+  --secondary-foreground: hsl(210deg 40% 98.04%);
+  --muted: hsl(210deg 40% 96.08%);
+  --muted-foreground: hsl(215.38deg 16.32% 46.86%);
+  --accent: hsl(47.95deg 95.82% 53.14%);
+  --accent-foreground: hsl(222.22deg 47.37% 11.18%);
+  --destructive: hsl(0deg 84.24% 60.2%);
+  --destructive-foreground: hsl(210deg 40% 98.04%);
+  --border: hsl(214.29deg 31.82% 91.37%);
+  --input: hsl(220deg 14.29% 95.88%);
+  --ring: hsl(221.21deg 83.19% 53.33%);
+  --chart-1: hsl(221.21deg 83.19% 53.33%);
+  --chart-2: hsl(173.41deg 80.39% 40%);
+  --chart-3: hsl(47.95deg 95.82% 53.14%);
+  --chart-4: hsl(142.09deg 70.56% 45.29%);
+  --chart-5: hsl(346.84deg 77.17% 49.8%);
   --sidebar: hsl(0, 0%, 100%);
   --sidebar-foreground: hsl(222, 84%, 5%);
   --sidebar-primary: hsl(221, 83%, 53%);
@@ -37,10 +37,10 @@
   --sidebar-accent-foreground: hsl(221, 83%, 53%);
   --sidebar-border: hsl(214, 32%, 91%);
   --sidebar-ring: hsl(221, 83%, 53%);
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: Inter;
   --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-serif: Architects Daughter;
+  --font-mono: Architects Daughter;
   --radius: 1rem;
   
   /* Enhanced Gaming-Inspired Shadows */
