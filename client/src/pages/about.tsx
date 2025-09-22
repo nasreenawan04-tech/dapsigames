@@ -2,8 +2,15 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Eye, Heart, Sparkles, Users, Trophy, Rocket } from "lucide-react";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function About() {
+  useSEO({
+    title: "About Us - Our Story & Mission",
+    description: "Learn about DapsiGames' mission to revolutionize education through gaming. Founded by educators, we've helped 500,000+ students worldwide learn through play.",
+    canonical: "https://dapsigames.com/about"
+  });
+
   const timelineItems = [
     {
       year: "2020",
@@ -60,9 +67,10 @@ export default function About() {
             <div>
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-                alt="Students studying together"
+                alt="Students collaborating with educational materials and technology"
                 className="rounded-2xl shadow-lg w-full h-auto"
                 data-testid="about-image"
+                loading="lazy"
               />
             </div>
             <div>

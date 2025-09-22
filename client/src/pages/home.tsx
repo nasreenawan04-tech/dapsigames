@@ -7,8 +7,15 @@ import { StatsCounter } from "@/components/stats-counter";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { GraduationCap, Brain, Zap, Globe, Target, Eye, Heart, Play, Sparkles, Trophy, Users, Star } from "lucide-react";
 import type { Game, Category } from "@shared/schema";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function Home() {
+  useSEO({
+    title: "Learn Through Play - Free Educational Games",
+    description: "Transform learning into an adventure with DapsiGames' collection of free educational games. Join 500,000+ students worldwide in making education fun and effective.",
+    canonical: "https://dapsigames.com"
+  });
+
   const { data: games = [] } = useQuery<Game[]>({
     queryKey: ["/api/games"],
   });
