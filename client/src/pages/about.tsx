@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, Eye, Heart } from "lucide-react";
+import { Target, Eye, Heart, Sparkles, Users, Trophy, Rocket } from "lucide-react";
 
 export default function About() {
   const timelineItems = [
@@ -38,20 +38,25 @@ export default function About() {
   ];
 
   return (
-    <div className="py-20 px-4" data-testid="about-page">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6" data-testid="about-title">
+    <div className="py-24 px-4 min-h-screen bg-gradient-to-b from-background via-muted/30 to-background" data-testid="about-page">
+      <div className="max-w-7xl mx-auto">
+        {/* Hero Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-gaming-primary/10 backdrop-blur-sm rounded-full px-6 py-3 mb-6">
+            <Heart className="w-5 h-5 text-gaming-primary animate-pulse" />
+            <span className="text-gaming-primary font-display font-medium">❤️ Our Story</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-center mb-8 text-gaming-gradient" data-testid="about-title">
             About DapsiGames
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="about-subtitle">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed" data-testid="about-subtitle">
             Making learning fun for students worldwide through innovative educational games that combine entertainment with effective learning strategies.
           </p>
         </div>
 
-        {/* Story Section */}
-        <div className="mb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Enhanced Story Section */}
+        <div className="mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
@@ -61,9 +66,14 @@ export default function About() {
               />
             </div>
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6" data-testid="our-story-title">
-                Our Story
-              </h2>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gaming-primary/10 rounded-2xl flex items-center justify-center">
+                  <Rocket className="w-6 h-6 text-gaming-primary" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gaming-gradient" data-testid="our-story-title">
+                  Our Story
+                </h2>
+              </div>
               <p className="text-muted-foreground mb-4" data-testid="story-paragraph-1">
                 DapsiGames was born from a simple observation: students learn better when they're engaged and having fun. Our founder, a former educator, noticed that traditional learning methods often failed to capture students' attention in our digital age.
               </p>
@@ -77,8 +87,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Mission, Vision, Values */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20" data-testid="mission-vision-values">
+        {/* Enhanced Mission, Vision, Values */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24" data-testid="mission-vision-values">
           <div className="text-center" data-testid="mission-section">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Target className="w-8 h-8 text-primary" />

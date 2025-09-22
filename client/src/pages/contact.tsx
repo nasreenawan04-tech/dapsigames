@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Clock, Globe, Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Mail, Clock, Globe, Twitter, Facebook, Instagram, Linkedin, Sparkles, Heart, Send } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { insertContactMessageSchema } from "@shared/schema";
 import type { InsertContactMessage } from "@shared/schema";
@@ -53,24 +53,34 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-20 px-4" data-testid="contact-page">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6" data-testid="contact-title">
+    <div className="py-24 px-4 min-h-screen bg-gradient-to-b from-background via-muted/30 to-background" data-testid="contact-page">
+      <div className="max-w-7xl mx-auto">
+        {/* Hero Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-gaming-primary/10 backdrop-blur-sm rounded-full px-6 py-3 mb-6">
+            <Heart className="w-5 h-5 text-gaming-primary animate-pulse" />
+            <span className="text-gaming-primary font-display font-medium">💬 Let's Connect</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-center mb-8 text-gaming-gradient" data-testid="contact-title">
             Contact Us
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="contact-subtitle">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed" data-testid="contact-subtitle">
             Have questions, feedback, or suggestions? We'd love to hear from you! Our team is here to help make your learning experience even better.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="shadow-lg border border-border">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Enhanced Contact Form */}
+          <Card className="shadow-xl border-2 border-border/50 hover:border-gaming-primary/30 transition-all duration-[250ms]" elevation="3">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-6" data-testid="contact-form-title">
-                Send us a Message
-              </h2>
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-12 h-12 bg-gaming-primary/10 rounded-2xl flex items-center justify-center">
+                  <Send className="w-6 h-6 text-gaming-primary" />
+                </div>
+                <h2 className="text-2xl font-display font-bold text-gaming-gradient" data-testid="contact-form-title">
+                  Send us a Message
+                </h2>
+              </div>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="contact-form">
                   <FormField
@@ -159,22 +169,34 @@ export default function Contact() {
 
                   <Button 
                     type="submit" 
-                    className="w-full py-3 rounded-2xl font-semibold"
+                    variant="gaming"
+                    className="w-full py-4 rounded-3xl font-display font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
                     disabled={contactMutation.isPending}
                     data-testid="button-send-message"
                   >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
+                    {contactMutation.isPending ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                        <Sparkles className="w-4 h-4 ml-2 animate-pulse" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </Form>
             </CardContent>
           </Card>
 
-          {/* Contact Information */}
+          {/* Enhanced Contact Information */}
           <div className="space-y-8">
-            <Card className="shadow-lg border border-border">
+            <Card className="shadow-xl border-2 border-border/50 hover:border-gaming-primary/30 transition-all duration-[250ms] hover:shadow-2xl">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-4" data-testid="contact-info-title">
+                <h3 className="text-xl font-display font-bold mb-6 text-gaming-gradient" data-testid="contact-info-title">
                   Get in Touch
                 </h3>
                 <div className="space-y-4">
@@ -211,9 +233,9 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="shadow-lg border border-border">
+            <Card className="shadow-xl border-2 border-border/50 hover:border-gaming-primary/30 transition-all duration-[250ms] hover:shadow-2xl">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-4" data-testid="social-media-title">
+                <h3 className="text-xl font-display font-bold mb-6 text-gaming-gradient" data-testid="social-media-title">
                   Follow Us
                 </h3>
                 <div className="flex space-x-4" data-testid="social-media-links">
@@ -249,20 +271,25 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-primary to-secondary text-white">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-4" data-testid="join-community-title">
-                  Join Our Community
-                </h3>
-                <p className="mb-4 text-white/90" data-testid="join-community-description">
+            <Card className="bg-gaming-primary text-white shadow-2xl border-2 border-gaming-primary/30 hover:shadow-3xl transition-all duration-[250ms] hover:scale-105 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20" />
+              <CardContent className="p-8 relative z-10">
+                <div className="flex items-center space-x-3 mb-6">
+                  <Sparkles className="w-6 h-6 text-accent animate-pulse" />
+                  <h3 className="text-xl font-display font-bold" data-testid="join-community-title">
+                    Join Our Community
+                  </h3>
+                </div>
+                <p className="mb-6 text-white/90 leading-relaxed" data-testid="join-community-description">
                   Stay updated with new games, features, and educational content. Join thousands of learners worldwide!
                 </p>
                 <Link href="/signup">
                   <Button 
                     variant="secondary" 
-                    className="bg-white text-primary font-semibold hover:bg-white/90"
+                    className="bg-white text-gaming-primary font-display font-bold hover:bg-white/90 px-6 py-3 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
                     data-testid="button-join-now"
                   >
+                    <Users className="w-5 h-5 mr-2" />
                     Join Now
                   </Button>
                 </Link>
