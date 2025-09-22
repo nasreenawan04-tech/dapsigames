@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,17 +37,41 @@
   --sidebar-border: hsl(214, 32%, 91%);
   --sidebar-ring: hsl(221, 83%, 53%);
   --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: 1rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00), 0px 1px 2px -1px hsl(221, 83%, 53%, 0.00);
-  --shadow: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00), 0px 1px 2px -1px hsl(221, 83%, 53%, 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00), 0px 2px 4px -1px hsl(221, 83%, 53%, 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00), 0px 4px 6px -1px hsl(221, 83%, 53%, 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00), 0px 8px 10px -1px hsl(221, 83%, 53%, 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(221, 83%, 53%, 0.00);
+  
+  /* Enhanced Gaming-Inspired Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-game: 0 0 0 1px hsl(221, 83%, 53%, 0.1), 0 4px 16px hsl(221, 83%, 53%, 0.15);
+  --shadow-glow: 0 0 20px hsl(221, 83%, 53%, 0.3);
+  
+  /* Card Elevation System */
+  --card-1: hsl(0, 0%, 100%);
+  --card-2: hsl(210, 40%, 99%);
+  --card-3: hsl(210, 40%, 98%);
+  
+  /* State Colors */
+  --success: hsl(147, 78%, 42%);
+  --success-foreground: hsl(210, 40%, 98%);
+  --warning: hsl(34, 100%, 50%);
+  --warning-foreground: hsl(222, 84%, 5%);
+  --error: hsl(0, 84%, 60%);
+  --error-foreground: hsl(210, 40%, 98%);
+  
+  /* Motion Tokens */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-gaming: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 }
@@ -85,10 +109,19 @@
   --sidebar-accent-foreground: hsl(221, 83%, 53%);
   --sidebar-border: hsl(222, 84%, 15%);
   --sidebar-ring: hsl(221, 83%, 53%);
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
-  --radius: 1rem;
+  
+  /* Dark Mode Card Elevation */
+  --card-1: hsl(222, 84%, 8%);
+  --card-2: hsl(222, 84%, 10%);
+  --card-3: hsl(222, 84%, 12%);
+  
+  /* Dark Mode State Colors */
+  --success: hsl(147, 78%, 42%);
+  --success-foreground: hsl(210, 40%, 98%);
+  --warning: hsl(34, 100%, 50%);
+  --warning-foreground: hsl(222, 84%, 5%);
+  --error: hsl(0, 84%, 60%);
+  --error-foreground: hsl(210, 40%, 98%);
 }
 
 @layer base {
@@ -102,26 +135,117 @@
 }
 
 @layer components {
+  /* Gaming-Inspired Card Interactions */
+  .game-card {
+    transition: all var(--duration-normal) var(--ease-gaming);
+    transform-origin: center;
+  }
+  
   .game-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-game);
+  }
+  
+  .game-card:active {
+    transform: translateY(-4px) scale(1.01);
+    transition-duration: var(--duration-fast);
+  }
+  
+  .category-card {
+    transition: all var(--duration-normal) var(--ease-gaming);
+    transform-origin: center;
   }
   
   .category-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .category-card:active {
     transform: scale(1.02);
+    transition-duration: var(--duration-fast);
   }
   
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  /* Gaming Button Effects */
+  .btn-gaming {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-gaming);
+  }
+  
+  .btn-gaming:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-game);
+  }
+  
+  .btn-gaming:active {
+    transform: translateY(0);
+    transition-duration: var(--duration-fast);
+  }
+  
+  .btn-gaming::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left var(--duration-slow) var(--ease-gaming);
+  }
+  
+  .btn-gaming:hover::before {
+    left: 100%;
+  }
+  
+  /* Focus States for Accessibility */
+  .focus-gaming:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: calc(var(--radius) - 2px);
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .game-card,
+    .category-card,
+    .btn-gaming,
+    .fade-in-up {
+      animation: none !important;
+      transition: none !important;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    
+    .game-card:hover,
+    .category-card:hover {
+      transform: none;
     }
   }
   
+  /* Enhanced Animation Classes */
   .fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp 0.6s var(--ease-gaming);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+    animation: pulse-glow 2s var(--ease-gaming) infinite;
+  }
+  
+  /* Gaming Gradient Backgrounds */
+  .bg-gaming-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  }
+  
+  .bg-gaming-accent {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  }
+  
+  /* Text Gradient Effects */
+  .text-gaming-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
   }
 }
