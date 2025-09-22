@@ -33,18 +33,41 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
-    root.classList.remove("light", "dark");
+    const applyTheme = () => {
+      root.classList.remove("light", "dark");
 
+      if (theme === "system") {
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+        root.classList.add(systemTheme);
+        return;
+      }
+
+      root.classList.add(theme);
+    };
+
+    applyTheme();
+
+    // Listen for system theme changes when using system mode
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      
+      const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+        const systemTheme = event.matches ? "dark" : "light";
+        root.classList.remove("light", "dark");
+        root.classList.add(systemTheme);
+      };
 
-      root.classList.add(systemTheme);
-      return;
+      // Add event listener for system theme changes
+      mediaQuery.addEventListener("change", handleSystemThemeChange);
+
+      // Cleanup listener when theme changes or component unmounts
+      return () => {
+        mediaQuery.removeEventListener("change", handleSystemThemeChange);
+      };
     }
-
-    root.classList.add(theme);
   }, [theme]);
 
   const value = {
