@@ -260,6 +260,11 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
+    line-height: 1.2;
+    padding: 0.1em 0;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: 0 0;
   }
   
   /* Animation Keyframes */
