@@ -46,8 +46,8 @@ export function Navbar() {
                 href={item.path}
                 className={`relative font-display font-medium transition-all duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-105 focus-gaming ${
                   isActivePath(item.path)
-                    ? "text-primary"
-                    : "text-foreground hover:text-primary"
+                    ? "text-primary-text"
+                    : "text-foreground hover:text-primary-text"
                 } ${isActivePath(item.path) ? 'after:content-[\'\'] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-gaming-primary after:rounded-full' : ''}`}
                 data-testid={`nav-link-${item.name.toLowerCase()}`}
               >
@@ -87,8 +87,8 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`text-lg transition-colors ${
                       isActivePath(item.path)
-                        ? "text-primary font-medium"
-                        : "text-foreground hover:text-primary"
+                        ? "text-primary-text font-medium"
+                        : "text-foreground hover:text-primary-text"
                     }`}
                     data-testid={`mobile-nav-link-${item.name.toLowerCase()}`}
                   >
